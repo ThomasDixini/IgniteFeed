@@ -1,0 +1,7 @@
+.headerContainer {
+    background-color: #202024;
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
