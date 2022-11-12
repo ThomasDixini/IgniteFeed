@@ -10,7 +10,7 @@ export function SideBar() {
             className={styles.cover} 
             />
             <div className={styles.profile}>
-                <img src="https://images.unsplash.com/photo-1522252234503-e356532cafd5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=50&q=80" 
+                <img src="https://github.com/ThomasDixini.png" 
                 alt="Foto do Perfil"
                 className={styles.avatar}
                 />
