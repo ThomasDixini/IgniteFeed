@@ -21,9 +21,11 @@
 
 .profile > span {
     color: #8d8d99;
+    font-size: 0.875rem;
 }
 
 .profile img {
+    box-sizing: initial;
     border-radius: 8px;
     border: 2px solid #00b378;
     padding: 0.25rem;
@@ -49,10 +51,11 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    transition: filter 0.2s;
+    transition: background-color 0.2s, color 0.2s;
     
 }
 
 .asideContainer > footer > a:hover {
-    filter: brightness(0.7);
+    background-color: #00b378;
+    color: white;
 }
