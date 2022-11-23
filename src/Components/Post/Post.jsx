@@ -3,7 +3,7 @@ import styles from './styles.module.css';
 export function Post(){
     return(
         <article className={styles.articleContainer}>
-            <header>
+            <header className={styles.header}>
                 <div className={styles.profile}>
                     <img src="" 
                     alt="Foto do Perfil"
@@ -17,17 +17,17 @@ export function Post(){
                 </span>
             </header>
             <p>
-                Fala galeraa 👋
+                Fala galeraa 👋 <br/><br/>
 
-                Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀
+                Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀 <br/><br/>
 
-                👉 jane.design/doctorcare
+                <a hrfe=""> 👉 jane.design/doctorcare </a> <br/>
 
-                #novoprojeto #nlw #rocketseat
+                <a hrfe=""> #novoprojeto </a> <a href=""> #nlw </a> <a href=""> #rocketseat </a> 
             </p>
-            <footer>
+            <footer className={styles.footer}>
                 <strong> Deixe seu feedback </strong>
-                <textarea name="" id="" cols="30" rows="10" />
+                <textarea name="comentario" id="comentario" placeholder="Escreva um comentário..."/>
                 <button type="submit"> Publicar </button>
             </footer>
         </article>
