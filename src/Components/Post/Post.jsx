@@ -25,11 +25,13 @@ export function Post(){
 
                 <a hrfe=""> #novoprojeto </a> <a href=""> #nlw </a> <a href=""> #rocketseat </a> 
             </p>
-            <footer className={styles.footer}>
+            <form className={styles.formStyle}>
                 <strong> Deixe seu feedback </strong>
                 <textarea name="comentario" id="comentario" placeholder="Escreva um comentário..."/>
-                <button type="submit"> Publicar </button>
-            </footer>
+                <footer>
+                    <button type="submit"> Publicar </button>
+                </footer>
+            </form>
         </article>
     );
 }
