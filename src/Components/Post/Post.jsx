@@ -36,6 +36,8 @@ export function Post(){
                 </footer>
             </form>
             <Comment />
+            <Comment />
+            <Comment />
         </article>
     );
 }
