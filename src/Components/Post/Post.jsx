@@ -1,3 +1,4 @@
+import { Comment } from '../Comment/Comment';
 import styles from './styles.module.css';
 
 export function Post(){
@@ -5,16 +6,18 @@ export function Post(){
         <article className={styles.articleContainer}>
             <header className={styles.header}>
                 <div className={styles.profile}>
-                    <img src="" 
+                    <img src="https://github.com/diego3g.png" 
                     alt="Foto do Perfil"
                     className={styles.avatar}
                     />
-                    <strong> Diego Fernandes </strong>
-                    <span> Web Developer </span>
+                    <div className={styles.userProperties}>
+                        <strong> Diego Fernandes </strong>
+                        <span> Web Developer </span>
+                    </div>
                 </div>
-                <span>
+                <time title='Publicado a 1h'>
                     Publicado a 1h
-                </span>
+                </time>
             </header>
             <p>
                 Fala galeraa 👋 <br/><br/>
@@ -32,6 +35,7 @@ export function Post(){
                     <button type="submit"> Publicar </button>
                 </footer>
             </form>
+            <Comment />
         </article>
     );
 }
