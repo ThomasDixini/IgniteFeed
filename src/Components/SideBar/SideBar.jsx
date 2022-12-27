@@ -1,5 +1,6 @@
 import styles from './styles.module.css';
 import {BsPencilSquare} from 'react-icons/bs'
+import { Avatar } from '../Avatar/Avatar';
 
 export function SideBar() {
     return(
@@ -10,10 +11,7 @@ export function SideBar() {
             className={styles.cover} 
             />
             <div className={styles.profile}>
-                <img src="https://github.com/ThomasDixini.png" 
-                alt="Foto do Perfil"
-                className={styles.avatar}
-                />
+                <Avatar src="https://github.com/ThomasDixini.png" />
                 <strong> Diego Fernandes </strong>
                 <span> Web Developer </span>
             </div>

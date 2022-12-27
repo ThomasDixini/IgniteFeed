@@ -1,11 +1,12 @@
 import { BsFillTrashFill } from 'react-icons/bs'
 import { BiLike } from 'react-icons/bi'
 import styles from './styles.module.css'
+import { Avatar } from '../Avatar/Avatar';
 
 export function Comment() {
     return(
         <article className={styles.articleContainer}>
-            <img src="https://github.com/diego3g.png" alt="Logo de Diego Fernandes" />
+            <Avatar hasBorder={false} src="https://github.com/maykbrito.png"/>
             <div className={styles.commentBox}>
                 <div className={styles.commentContent}>
                     <header>
