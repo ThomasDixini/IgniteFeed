@@ -3,7 +3,7 @@ import { BiLike } from 'react-icons/bi'
 import styles from './styles.module.css'
 import { Avatar } from '../Avatar/Avatar';
 
-export function Comment() {
+export function Comment({content}) {
     return(
         <article className={styles.articleContainer}>
             <Avatar hasBorder={false} src="https://github.com/maykbrito.png"/>
@@ -17,7 +17,7 @@ export function Comment() {
                         <BsFillTrashFill size={20}/>
                     </header>
                 
-                    <p> Muito bom Devon!! Gostei &hearts; </p>
+                    <p> {content} </p>
                 </div>
                 <footer>
                     <button>

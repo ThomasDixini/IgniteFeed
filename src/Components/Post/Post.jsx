@@ -1,11 +1,15 @@
 import { format, formatDistanceToNow } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
+import { useState } from 'react';
 
 import { Avatar } from '../Avatar/Avatar';
 import { Comment } from '../Comment/Comment';
 import styles from './styles.module.css';
 
 export function Post({author, content, publishedAt}){
+
+    const [comments, setComments] = useState(['Muito bom véi']);
+    const [newCommentContent, setNewCommentContent] = useState('');
 
     const dateFormated = format(publishedAt,"d 'de' MMMM 'às' kk'h'", {
         locale: ptBR,
@@ -23,6 +27,17 @@ export function Post({author, content, publishedAt}){
             return <p> <a href="#"> {line.content} </a> </p>
         }
     })
+
+    function handleCreateNewComment() {
+        event.preventDefault();
+
+        setComments([...comments, newCommentContent]);
+        setNewCommentContent('')
+    }
+
+    function handleCreateCommentText() {
+        setNewCommentContent(event.target.value);
+    }
 
     return(
         <article className={styles.articleContainer}>
@@ -43,16 +58,26 @@ export function Post({author, content, publishedAt}){
             {
                 contentFormated
             }
-            <form className={styles.formStyle}>
+            <form onSubmit={handleCreateNewComment} className={styles.formStyle}>
                 <strong> Deixe seu feedback </strong>
-                <textarea name="comentario" id="comentario" placeholder="Escreva um comentário..."/>
+                <textarea 
+                    name="comentario" 
+                    id="comentario" 
+                    placeholder="Escreva um comentário..."
+                    onChange={handleCreateCommentText}
+                    value={newCommentContent}
+                    />
                 <footer>
                     <button type="submit"> Publicar </button>
                 </footer>
             </form>
-            <Comment />
-            <Comment />
-            <Comment />
+            {
+                comments.map(comment => {
+                    return(
+                        <Comment content={comment} />
+                    );
+                })
+            }
         </article>
     );
 }
