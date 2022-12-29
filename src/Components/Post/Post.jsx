@@ -1,31 +1,48 @@
+import { format, formatDistanceToNow } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
+
 import { Avatar } from '../Avatar/Avatar';
 import { Comment } from '../Comment/Comment';
 import styles from './styles.module.css';
 
-export function Post(){
+export function Post({author, content, publishedAt}){
+
+    const dateFormated = format(publishedAt,"d 'de' MMMM 'às' kk'h'", {
+        locale: ptBR,
+    });
+
+    const dateFormatedDistanceToNow = formatDistanceToNow(publishedAt, {
+        addSuffix: true,
+        locale: ptBR,
+    });
+
+    const contentFormated = content.map(line => {
+        if(line.type == 'paragraph'){
+            return <p> {line.content} </p>
+        } else if(line.type == 'link'){
+            return <p> <a href="#"> {line.content} </a> </p>
+        }
+    })
+
     return(
         <article className={styles.articleContainer}>
             <header className={styles.header}>
                 <div className={styles.profile}>
-                    <Avatar src="https://github.com/diego3g.png"/>
+                    <Avatar src={author.authorUrl}/>
                     <div className={styles.userProperties}>
-                        <strong> Diego Fernandes </strong>
-                        <span> Web Developer </span>
+                        <strong> {author.name} </strong>
+                        <span> {author.role} </span>
                     </div>
                 </div>
-                <time title='Publicado a 1h'>
-                    Publicado a 1h
+                <time title={dateFormated}>
+                    {
+                        dateFormatedDistanceToNow
+                    }
                 </time>
             </header>
-            <p>
-                Fala galeraa 👋 <br/><br/>
-
-                Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀 <br/><br/>
-
-                <a hrfe=""> 👉 jane.design/doctorcare </a> <br/>
-
-                <a hrfe=""> #novoprojeto </a> <a href=""> #nlw </a> <a href=""> #rocketseat </a> 
-            </p>
+            {
+                contentFormated
+            }
             <form className={styles.formStyle}>
                 <strong> Deixe seu feedback </strong>
                 <textarea name="comentario" id="comentario" placeholder="Escreva um comentário..."/>
