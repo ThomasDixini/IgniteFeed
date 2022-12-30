@@ -2,8 +2,16 @@ import { BsFillTrashFill } from 'react-icons/bs'
 import { BiLike } from 'react-icons/bi'
 import styles from './styles.module.css'
 import { Avatar } from '../Avatar/Avatar';
+import { useState } from 'react';
 
 export function Comment({content, deleteComment}) {
+
+    const [countLike, setCountLike] = useState(0);
+
+    function handleLikeComment() {
+        setCountLike(countLike + 1)
+    }
+
     return(
         <article className={styles.articleContainer}>
             <Avatar hasBorder={false} src="https://github.com/maykbrito.png"/>
@@ -20,11 +28,11 @@ export function Comment({content, deleteComment}) {
                     <p> {content} </p>
                 </div>
                 <footer>
-                    <button>
+                    <button onClick={handleLikeComment}>
                         <BiLike size={20} />
                         <span>
                             Aplaudir
-                            <b>30</b>
+                            <b>{countLike}</b>
                         </span>
                     </button>
                 </footer>
