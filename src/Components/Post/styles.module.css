@@ -91,3 +91,11 @@
     color: #fff;
     border: none;
 }
+
+.formStyle button[type=submit]:not(:disabled):hover {
+    filter: brightness(0.8);
+}
+
+.formStyle button[type=submit]:disabled {
+    opacity: 0.7;
+}

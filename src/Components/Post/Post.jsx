@@ -36,7 +36,12 @@ export function Post({author, content, publishedAt}){
     }
 
     function handleCreateCommentText() {
+        event.target.setCustomValidity('')
         setNewCommentContent(event.target.value);
+    }
+
+    function handleValidateInput() {
+        event.target.setCustomValidity('Esse campo é obrigatório')
     }
 
     return(
@@ -65,10 +70,12 @@ export function Post({author, content, publishedAt}){
                     id="comentario" 
                     placeholder="Escreva um comentário..."
                     onChange={handleCreateCommentText}
+                    onInvalid={handleValidateInput}
+                    required
                     value={newCommentContent}
                     />
                 <footer>
-                    <button type="submit"> Publicar </button>
+                    <button type="submit" disabled={newCommentContent.length == 0}> Publicar </button>
                 </footer>
             </form>
             {
