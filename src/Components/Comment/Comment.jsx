@@ -3,7 +3,7 @@ import { BiLike } from 'react-icons/bi'
 import styles from './styles.module.css'
 import { Avatar } from '../Avatar/Avatar';
 
-export function Comment({content}) {
+export function Comment({content, deleteComment}) {
     return(
         <article className={styles.articleContainer}>
             <Avatar hasBorder={false} src="https://github.com/maykbrito.png"/>
@@ -14,7 +14,7 @@ export function Comment({content}) {
                             <strong> Diego Fernandes</strong>
                             <span> Cerca de 2h atrás</span>
                         </div>
-                        <BsFillTrashFill size={20}/>
+                        <BsFillTrashFill size={20} onClick={() => deleteComment(content)}/>
                     </header>
                 
                     <p> {content} </p>

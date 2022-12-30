@@ -44,6 +44,14 @@ export function Post({author, content, publishedAt}){
         event.target.setCustomValidity('Esse campo é obrigatório')
     }
 
+    function handleDeleteComment(commentToDelete) {
+        const commentDeleted = comments.filter(comment => {
+            return comment != commentToDelete;
+        })
+
+        setComments(commentDeleted)
+    }
+
     return(
         <article className={styles.articleContainer}>
             <header className={styles.header}>
@@ -81,7 +89,7 @@ export function Post({author, content, publishedAt}){
             {
                 comments.map(comment => {
                     return(
-                        <Comment content={comment} />
+                        <Comment content={comment} deleteComment={handleDeleteComment}/>
                     );
                 })
             }
